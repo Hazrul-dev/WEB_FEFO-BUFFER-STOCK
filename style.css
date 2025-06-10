@@ -1,0 +1,420 @@
+/* ======================================
+   ELEGANT COFFEE SHOP THEME - FIXED VERSION
+   ====================================== */
+
+   :root {
+    /* Color Palette - Rich Coffee Tones */
+    --primary-color: #5D4037;      /* Deep Coffee */
+    --secondary-color: #A1887F;    /* Soft Latte */
+    --accent-color: #D7CCC8;       /* Cream */
+    --dark-color: #3E2723;         /* Dark Espresso */
+    --light-color: #EFEBE9;        /* Pale Cream */
+    
+    /* Functional Colors - All Adjusted to Coffee Tones */
+    --danger-color: #962A2A;       /* Rich Brown-Red */
+    --warning-color: #B36A00;      /* Dark Amber */
+    --success-color: #4B3621;      /* Dark Chocolate */
+    --info-color: #6D4C41;         /* Mocha Brown */
+    
+    /* Typography */
+    --font-main: 'Poppins', sans-serif;
+    --font-heading: 'Playfair Display', serif;
+    
+    /* Layout */
+    --border-radius: 12px;
+    --card-shadow: 0 8px 20px rgba(62, 39, 35, 0.08);
+    --transition-speed: 0.35s;
+    
+    /* Bootstrap Overrides - To replace blue tones */
+    --bs-primary: #5D4037;
+    --bs-primary-rgb: 93, 64, 55;
+    --bs-secondary: #A1887F;
+    --bs-secondary-rgb: 161, 136, 127;
+    --bs-info: #6D4C41;
+    --bs-info-rgb: 109, 76, 65;
+    --bs-link-color: #5D4037;
+    --bs-link-hover-color: #3E2723;
+  }
+  
+  /* ====== Dark Mode Refinements ====== */
+  .dark-mode {
+    --light-color: #121212;
+    --dark-color: #EFEBE9;  /* Diubah untuk contrast yang lebih baik */
+    --accent-color: #D7CCC8; /* Diubah ke warna lebih terang */
+    background-color: #121212;
+    color: #E0E0E0;  /* Text warna lebih terang untuk readability */
+  }
+  
+  .dark-mode .card,
+  .dark-mode .modal-content,
+  .dark-mode .dropdown-menu {
+    background-color: #1E1E1E;
+    color: #E0E0E0;
+    border-color: #333;
+  }
+  
+  .dark-mode .table {
+    color: #E0E0E0;
+  }
+  
+  .dark-mode .table-hover tbody tr:hover {
+    background-color: rgba(215, 204, 200, 0.15);  /* Ditingkatkan kontrasnya */
+    color: #FFF;
+  }
+  
+  /* ====== Base Styles ====== */
+  body {
+    font-family: var(--font-main);
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    line-height: 1.6;
+    transition: all var(--transition-speed) ease;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+    color: var(--dark-color);  /* Memastikan heading selalu kontras */
+  }
+  
+  /* Memastikan teks selalu kontras dengan latar belakang */
+  .dark-mode h1, .dark-mode h2, .dark-mode h3, 
+  .dark-mode h4, .dark-mode h5, .dark-mode h6 {
+    color: #FFFFFF;
+  }
+  
+  /* ====== Navigation ====== */
+  .navbar {
+    background-color: var(--primary-color);
+    box-shadow: 0 2px 10px rgba(62, 39, 35, 0.1);
+    transition: all var(--transition-speed) ease;
+    padding: 0.8rem 1.5rem;
+  }
+  
+  .navbar-brand {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    color: #FFFFFF;  /* Memastikan brand name selalu terlihat */
+  }
+  
+  .nav-link {
+    font-weight: 500;
+    text-transform: capitalize;
+    position: relative;
+    transition: color 0.3s ease;
+    color: #FFFFFF;  /* Text nav selalu terlihat */
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+  }
+  
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    width: 100%;
+  }
+  
+  /* ====== Sidebar ====== */
+  .sidebar {
+    background: linear-gradient(to bottom, var(--primary-color), var(--dark-color));
+    color: white;
+    height: 100vh;
+    position: fixed;
+    width: 260px;
+    transition: all var(--transition-speed) ease;
+    padding-top: 2rem;
+    box-shadow: 2px 0 10px rgba(62, 39, 35, 0.1);
+    z-index: 1000;
+  }
+  
+  .sidebar-header {
+    text-align: center;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);  /* Lebih terang */
+    margin-bottom: 1.5rem;
+  }
+  
+  .sidebar-link {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    color: #FFFFFF;  /* Diubah ke putih untuk readability */
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+  }
+  
+  .sidebar-link:hover,
+  .sidebar-link.active {
+    background-color: rgba(255, 255, 255, 0.15);  /* Lebih terang */
+    color: white;
+    border-left: 3px solid var(--accent-color);
+  }
+  
+  .sidebar-icon {
+    margin-right: 12px;
+    font-size: 1.1rem;
+  }
+  
+  .main-content {
+    margin-left: 260px;
+    padding: 2rem;
+    transition: all var(--transition-speed) ease;
+    background-color: var(--light-color);  /* Memastikan latar utama jelas */
+  }
+  
+  /* ====== Cards & Tables ====== */
+  .card {
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    transition: all var(--transition-speed) ease;
+    margin-bottom: 24px;
+    border: none;
+    overflow: hidden;
+    background-color: #FFFFFF;  /* Memastikan card background selalu terang */
+  }
+  
+  .card-header {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border-radius: var(--border-radius) var(--border-radius) 0 0 !important;
+    padding: 1rem 1.5rem;
+    font-family: var(--font-heading);
+    border-bottom: none;
+  }
+  
+  .card-body {
+    padding: 1.5rem;
+    color: #333333;  /* Memastikan text dalam card tetap dark */
+  }
+  
+  /* Memastikan tabel selalu kontras */
+  table {
+    color: #333333;
+    background-color: #FFFFFF;
+  }
+  
+  .dark-mode table {
+    color: #E0E0E0;
+    background-color: #1E1E1E;
+  }
+  
+  /* ====== Form & Input Styles ====== */
+  .form-control {
+    border: 1px solid #ced4da;
+    border-radius: var(--border-radius);
+    font-family: var(--font-main);
+  }
+  
+  .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(93, 64, 55, 0.25);
+  }
+  
+  .dark-mode .form-control {
+    background-color: #2d2d2d;
+    border-color: #444;
+    color: #E0E0E0;
+  }
+  
+  /* ====== Status Indicators ====== */
+  .expired {
+    background-color: rgba(150, 42, 42, 0.08) !important;
+    border-left: 4px solid var(--danger-color);
+  }
+  
+  .expired-soon {
+    background-color: rgba(179, 106, 0, 0.08) !important;
+    border-left: 4px solid var(--warning-color);
+  }
+  
+  .active-item {
+    background-color: rgba(75, 54, 33, 0.08) !important;
+    border-left: 4px solid var(--success-color);
+  }
+  
+  /* ====== Custom Buttons ====== */
+  .btn-primary {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(62, 39, 35, 0.15);
+    transition: all 0.3s ease;
+    font-weight: 500;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;  /* Pastikan teks tombol selalu putih */
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(62, 39, 35, 0.2);
+  }
+  
+  /* ====== Bootstrap Customizations ====== */
+  /* Memastikan text selalu terlihat jelas */
+  .text-primary {
+    color: var(--primary-color) !important;
+  }
+  
+  .dark-mode .text-primary {
+    color: #A1887F !important;  /* Warna lebih terang untuk dark mode */
+  }
+  
+  /* ====== Dark Mode Toggle Styling ====== */
+  .dark-mode-toggle {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    padding: 0.75rem 1.5rem;
+    color: #FFFFFF;
+  }
+  
+  .dark-mode-toggle input[type="checkbox"] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+  
+  .dark-mode-toggle label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 52px;
+    height: 27px;
+    background: #D7CCC8;
+    float: right;
+    border-radius: 100px;
+    position: relative;
+    margin: 0;
+  }
+  
+  .dark-mode-toggle label:after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 21px;
+    height: 21px;
+    background: #fff;
+    border-radius: 90px;
+    transition: 0.3s;
+  }
+  
+  .dark-mode-toggle input:checked + label {
+    background: var(--primary-color);
+  }
+  
+  .dark-mode-toggle input:checked + label:after {
+    left: calc(100% - 3px);
+    transform: translateX(-100%);
+  }
+  
+  .dark-mode-toggle span {
+    margin-right: 10px;
+  }
+  
+  /* ====== Responsive Design ====== */
+  @media (max-width: 992px) {
+    .sidebar {
+      width: 220px;
+    }
+    
+    .main-content {
+      margin-left: 220px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+      padding-top: 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .main-content {
+      margin-left: 0;
+      padding: 1.5rem;
+    }
+  }
+  
+  /* ====== Table Specific Styling ====== */
+  table thead th {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.75rem;
+    border-color: #694a3e;
+  }
+  
+  .table tbody tr:nth-of-type(odd) {
+    background-color: rgba(239, 235, 233, 0.5);
+  }
+  
+  .dark-mode .table tbody tr:nth-of-type(odd) {
+    background-color: rgba(30, 30, 30, 0.7);
+  }
+  
+  .table-hover tbody tr:hover {
+    background-color: rgba(161, 136, 127, 0.1);
+  }
+  
+  /* Badge/label untuk status */
+  .badge-admin {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.25em 0.6em;
+    font-weight: 500;
+    border-radius: 4px;
+  }
+  
+  /* Fix untuk tabel di dark mode */
+  .dark-mode table.table {
+    color: #E0E0E0;
+  }
+  
+  .dark-mode table.table thead th {
+    background-color: #4D342E;
+    color: white;
+    border-color: #5D4037;
+  }
+  
+  /* Memastikan tombol mode gelap berfungsi dengan baik */
+  .dark-mode .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+  }
+  
+  /* Fix untuk area konten utama di dark mode */
+  .dark-mode .main-content {
+    background-color: #121212;
+    color: #E0E0E0;
+  }
+  
+  /* ====== Custom Scrollbar ====== */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--light-color);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+  }
